@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Twitter Dev setup</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Getting Started</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Twitter-Dev-Setup">Twitter Dev Setup<a class="anchor-link" href="#Twitter-Dev-Setup">&#182;</a></h2><hr>
+<h2 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">&#182;</a></h2><p><img src="images/gettingstarted.png" width="500" height="200"></p>
 
 </div>
 </div>
@@ -11785,13 +11785,19 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Overview">Overview<a class="anchor-link" href="#Overview">&#182;</a></h3><hr>
-<ul>
-<li>Create a Twitter Account and get API access: <a href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></li>
-<li>CONSUMER_KEY </li>
-<li>CONSUMER_SECRET </li>
-<li>ACCESS_TOKEN </li>
-<li>ACCESS_TOKEN_SECRET</li>
-<li>!pip install tweepy</li>
+<h4 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">&#182;</a></h4><h4 id="Download-DataStax-Docker-Image">Download DataStax Docker Image<a class="anchor-link" href="#Download-DataStax-Docker-Image">&#182;</a></h4><h4 id="Open-Jupyter">Open Jupyter<a class="anchor-link" href="#Open-Jupyter">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">&#182;</a></h3><ul>
+<li>Download correct Docker Community Edition: <a href="https://store.docker.com/search?type=edition&amp;offering=community">https://store.docker.com/search?type=edition&amp;offering=community</a></li>
+<li>Create Log In to Download</li>
+<li>Download Docker
+<img src="images/downloaddocker.png" width="700" height="200"></li>
 </ul>
 
 </div>
@@ -11801,17 +11807,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="First-you-must-apply-to-get-a-Twitter-Dev-Account">First you must apply to get a Twitter Dev Account<a class="anchor-link" href="#First-you-must-apply-to-get-a-Twitter-Dev-Account">&#182;</a></h2><h4 id="If-this-is-not-of-interest-to-you,-then-you-may-use-the-already-existing-CSV-files-to-walk-through-this-tutorial"><strong><em>If this is not of interest to you, then you may use the already existing CSV files to walk through this tutorial</em></strong><a class="anchor-link" href="#If-this-is-not-of-interest-to-you,-then-you-may-use-the-already-existing-CSV-files-to-walk-through-this-tutorial">&#182;</a></h4><ul>
-<li>Follow this link here: <a href="https://developer.twitter.com/en/apply-for-access">https://developer.twitter.com/en/apply-for-access</a></li>
-<li>If you do not have a regular Twitter account, you will need to apply for that here: <a href="https://twitter.com/i/flow/signup">https://twitter.com/i/flow/signup</a></li>
-<li>Fill out application... follow steps. Verify email address at multiple steps. </li>
-<li>Once you get final acceptance email, you will be directed to this page. 
-<img src="images/createApp.png" width="650" height="350"></li>
-<li>Create a Twitter App to be able to connect
-<img src="images/finalAppInfo.png" width="550" height="350"></li>
-<li>Go to Keys and Tokens tab and create <strong><em>Access token &amp; access token secret</em></strong> Should now have 4 keys/tokens.
-<img src="images/createKeys.png" width="650" height="350"> </li>
-<li>Copy-paste the API key, API secret key, Access token, Access token secret into the Rotten Tomatoes Notebook</li>
+<h3 id="Change-Memory-For-Docker">Change Memory For Docker<a class="anchor-link" href="#Change-Memory-For-Docker">&#182;</a></h3><ul>
+<li>Allow for 5 GB of Memory per container</li>
+<li>Docker -&gt; Preferences -&gt; Advanced -&gt; Memory
+<img src="images/memorydocker.png" width="500" height="200"></li>
 </ul>
 
 </div>
@@ -11821,42 +11820,39 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Required-from-Twitter:">Required from Twitter:<a class="anchor-link" href="#Required-from-Twitter:">&#182;</a></h4><ul>
-<li>consumer_key= 'API key'</li>
-<li>consumer_secret= 'API secret key'</li>
-<li>access_token= 'Access token'</li>
-<li><p>access_token_secret= 'Access token secret'</p>
-</li>
-<li><p>Enter them below, or save as enviroment variables and import</p>
-</li>
-<li>Your name will be printed if able to connect</li>
+<h3 id="Download-DSE/Jupyter-Image">Download DSE/Jupyter Image<a class="anchor-link" href="#Download-DSE/Jupyter-Image">&#182;</a></h3><ul>
+<li>cd <strong>YourDownloadPath</strong>/pydata</li>
+<li>docker-compose up -d (Should take 6 minutes but will also start DataStax Enterprise, Spark, and Juypter)
+*</li>
 </ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">consumer_key</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="n">consumer_secret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-
-<span class="n">access_token</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-<span class="n">access_token_secret</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-
-<span class="n">auth</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span>
-<span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">access_token</span><span class="p">,</span> <span class="n">access_token_secret</span><span class="p">)</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">me</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Open-Jupyter">Open Jupyter<a class="anchor-link" href="#Open-Jupyter">&#182;</a></h3><ul>
+<li>Once download and start is complete </li>
+<li>Login with token that is in Jupyter logs</li>
+<li>docker logs pydata_jupyter_1 
+<img src="images/jupyterterm.png" width="1000" height="200"></li>
+<li>Example: <a href="http://127.0.0.1:8889/?token=dcd21bc3a1c1331c6c61d51fb5a9d64c72fca7f4b2a6000e">http://127.0.0.1:8889/?token=dcd21bc3a1c1331c6c61d51fb5a9d64c72fca7f4b2a6000e</a></li>
+<li>Navigate to notebooks directory!! </li>
+</ul>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="CONGRATS!-YOU-DID-IT!">CONGRATS! YOU DID IT!<a class="anchor-link" href="#CONGRATS!-YOU-DID-IT!">&#182;</a></h3><p><img src="images/congrats.jpg" width="200" height="200"></p>
 
+</div>
+</div>
 </div>
     </div>
   </div>
