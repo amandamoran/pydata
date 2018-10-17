@@ -11802,8 +11802,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pysparkzip</span> <span class="o">=</span> <span class="s2">&quot;&lt;&gt;/datastax/dse-6.0.4/resources/spark/python/lib/pyspark.zip&quot;</span>
-<span class="n">py4jzip</span> <span class="o">=</span> <span class="s2">&quot;&lt;&gt;/datastax/dse-6.0.4/resources/spark/python/lib/py4j-0.10.4-src.zip&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pysparkzip</span> <span class="o">=</span> <span class="s2">&quot;/opt/dse/resources/spark/python/lib/pyspark.zip&quot;</span>
+<span class="n">py4jzip</span> <span class="o">=</span> <span class="s2">&quot;/opt/dse/resources/spark/python/lib/py4j-0.10.4-src.zip&quot;</span>
 </pre></div>
 
 </div>
@@ -11831,7 +11831,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Import-python-packages----all-are-required">Import python packages -- all are required<a class="anchor-link" href="#Import-python-packages----all-are-required">&#182;</a></h4>
+<h4 id="Import-python-packages----all-are-required">Import python packages -- all are required<a class="anchor-link" href="#Import-python-packages----all-are-required">&#182;</a></h4><h5 id="Ignore-any-errors-shown">Ignore any errors shown<a class="anchor-link" href="#Ignore-any-errors-shown">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -11919,7 +11919,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">cassandra.cluster</span> <span class="kn">import</span> <span class="n">Cluster</span>
 
-<span class="n">cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="p">([</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">])</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">Cluster</span><span class="p">([</span><span class="s1">&#39;dse&#39;</span><span class="p">])</span>
 <span class="n">session</span> <span class="o">=</span> <span class="n">cluster</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </pre></div>
 
@@ -11987,7 +11987,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">movieTitle</span> <span class="o">=</span> <span class="s2">&quot;firstman&quot;</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">movieTitle</span> <span class="o">=</span> <span class="s2">&quot;AStarIsBorn&quot;</span>
 </pre></div>
 
 </div>
@@ -12154,7 +12154,7 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">countTokens</span> <span class="o">=</span> <span class="n">udf</span><span class="p">(</span><span class="k">lambda</span> <span class="n">words</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="n">IntegerType</span><span class="p">())</span>
 
-<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s1">&#39;demo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;dse://dse:9042&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
 
 <span class="n">tableNamePos</span> <span class="o">=</span> <span class="s2">&quot;movie_tweets_</span><span class="si">%s</span><span class="s2">_pos&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">movieTitle</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
 <span class="n">tableNameSad</span> <span class="o">=</span> <span class="s2">&quot;movie_tweets_</span><span class="si">%s</span><span class="s2">_sad&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">movieTitle</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
