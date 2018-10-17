@@ -24,7 +24,7 @@ In this tutorial, we’ll use sentiment analysis on Twitter data about the lates
 * Once download and start is complete 
 * Login with token that is in Jupyter logs
 * docker logs pydata_jupyter_1 
-<img src="notebooks/images/jupyterterm.png" width="700" height="200">
+<img src="notebooks/images/jupyterterm.png" width="800" height="200">
 * Example: http://127.0.0.1:8889/?token=dcd21bc3a1c1331c6c61d51fb5a9d64c72fca7f4b2a6000e
 * Navigate to notebooks directory!! 
 * Open When Rotten Tomatoes isn’t Enough CSV.ipynb 
